@@ -1,0 +1,32 @@
+{
+  "name": "winapp",
+  "version": "1.0.0",
+  "description": "winapp",
+  "main": "electron/main.js",
+  "build": {
+    "appId": "winappv1.0",
+    "productName": "订单系统",
+    "mac": {
+      "category": "dmg"
+    }
+  },
+  "scripts": {
+    "preview": "electron .",
+    "build": "node scripts/build.js",
+    "app:dir": "electron-builder --dir",
+    "app:dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron/fuses": "^1.8.0",
+    "electron": "^22.3.27",
+    "electron-builder": "^25.1.8",
+    "electron-rebuild": "^3.2.9"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.5.0",
+    "electron-squirrel-startup": "^1.0.1"
+  }
+}

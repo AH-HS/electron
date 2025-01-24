@@ -1,0 +1,14 @@
+name: react vite + react 项目
+on: push
+permissions:
+    contents: write
+
+jobs:
+    job1:
+        runs-on: windows-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: pwd
+            # - run: |
+            #        npm install 
+            #        npm run build

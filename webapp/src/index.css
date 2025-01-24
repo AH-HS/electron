@@ -1,0 +1,13 @@
+#root{
+  height: 100vh;
+}
+
+body{
+  /* 防止浏览器自带滚动的返回 */
+  overscroll-behavior:none
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}

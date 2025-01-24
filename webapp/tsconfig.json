@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "target": "ES2022",
+        "jsx": "react-jsx",
+        "noEmit": true,
+        "checkJs": true,
+        "outDir": "./dist",
+        "baseUrl": "./src", // Added baseUrl
+        "paths": { // Added paths
+            "@components/*": [
+                "components/*"
+            ],
+            "@utils/*": [
+                "utils/*"
+            ]
+        }
+    },
+    "include": [
+        "./src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
+}

@@ -1,0 +1,5 @@
+{
+    "name": "shared",
+    "type": "commonjs",
+    "main": "./index.js"
+}
