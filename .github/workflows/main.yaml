@@ -12,14 +12,21 @@ jobs:
             - name: Build page
               run: cd ./webapp && npm install && npm run build && cd ..
             - name: Build electron
-              run: npm install && node_modules/.bin/electron-rebuild && npm run build && ls dist
-            - name: relaease
-              uses: softprops/action-gh-release@v2
+              run: npm install && node_modules/.bin/electron-rebuild && npm run build && ls -a dist
+            - name: Upload build artifacts
+              uses: actions/upload-artifact@v3
               with:
-                    files: ./dist
-                    token: ${{ secrets.GITHUB_TOKEN }}
-                    release_name: ${{ github.run_id }}
-                    body: ${{ github.run_id }}
-                    tag: ${{ github.run_id }}
-                    draft: false
-                    prerelease: false
+                  name: build-artifacts
+                  path: ./dist
+                  
+    download-artifacts:
+        runs-on: windows-latest
+        needs: job1
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Download build artifacts
+              uses: actions/download-artifact@v3
+              with:
+                  name: build-artifacts
+                  path: ./downloaded-artifacts
