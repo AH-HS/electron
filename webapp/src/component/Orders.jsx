@@ -252,7 +252,6 @@ const addItem = () => {
     }
     const { destroy } = Modal.confirm({
         title: '创建记录',
-        title: null,
         icon: null,
         destroyOnClose: true,
         footer: false,
