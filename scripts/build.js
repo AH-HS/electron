@@ -6,11 +6,14 @@ const Platform = builder.Platform
 // Promise is returned
 builder
     .build({
-        targets: Platform.MAC.createTarget(),
+        targets: Platform.WINDOWS.createTarget(),
         config: {
             appId: 'com.example.app',
-            productName: 'scrirpt 打包',
+            productName: 'scrirpt 打包', // 打包后的文件名
             files: ['page/**/*', 'electron/**/*'],
+            win: {
+                target: ['portable'],
+            },
             //  see https://goo.gl/QQXmcV',
         },
     })

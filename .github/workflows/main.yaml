@@ -7,8 +7,19 @@ jobs:
     job1:
         runs-on: windows-latest
         steps:
-            - uses: actions/checkout@v4
-            - run: pwd
-            # - run: |
-            #        npm install 
-            #        npm run build
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Build page
+              run: cd ./webapp && npm install && npm run build && cd ..
+            - name: Build page
+              run: npm install && node_modules/.bin/electron-rebuild && npm run build && ls .dist
+            - name: relaease
+              uses: softprops/action-gh-release@v2
+              with:
+                    files: ./dist
+                    token: ${{ secrets.GITHUB_TOKEN }}
+                    release_name: ${{ github.run_id }}
+                    body: ${{ github.run_id }}
+                    tag: ${{ github.run_id }}
+                    draft: false
+                    prerelease: false
