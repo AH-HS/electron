@@ -12,7 +12,7 @@ builder
             productName: 'scrirpt 打包', // 打包后的文件名
             files: ['page/**/*', 'electron/**/*'],
             win: {
-                target: ['portable'],
+                target: ['portable', 'nsis'],
             },
             //  see https://goo.gl/QQXmcV',
         },
